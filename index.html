@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teachers Day Celebration 2025 - CSE Department</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #3498db 0%, #8e44ad 100%);
+            color: #fff;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Animated Background Elements */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            animation: float 8s infinite ease-in-out;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .bubble:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        @keyframes pop {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+
+        /* Header Styles */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 0.5s;
+        }
+
+        .department {
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            color: #ffcc00;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 0.8s;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards 1.1s;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: linear-gradient(45deg, #e74c3c, #e67e22);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.8rem;
+            font-weight: 600;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fadeInScale 1s ease forwards 1.4s;
+        }
+
+        /* Sections */
+        section {
+            padding: 60px 40px;
+            margin: 40px 0;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+            animation-delay: calc(var(--delay) * 0.2s);
+        }
+
+        h2 {
+            color: #ffcc00;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(45deg, #e74c3c, #e67e22);
+            border-radius: 2px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        /* Event Details */
+        .event-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .detail-card {
+            flex: 1;
+            min-width: 250px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .detail-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .detail-card i {
+            font-size: 3.5rem;
+            color: #ffcc00;
+            margin-bottom: 20px;
+        }
+
+        .detail-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .detail-card p {
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        /* Program Schedule */
+        .schedule {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .schedule th, .schedule td {
+            padding: 20px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .schedule th {
+            background: linear-gradient(45deg, #e74c3c, #e67e22);
+            color: white;
+            font-weight: 500;
+            font-size: 1.2rem;
+        }
+
+        .schedule tr:last-child td {
+            border-bottom: none;
+        }
+
+        .schedule tr:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .schedule td {
+            font-size: 1.1rem;
+        }
+
+        .time {
+            font-weight: 600;
+            color: #ffcc00;
+        }
+
+        /* Quote Section */
+        .quote-section {
+            text-align: center;
+            padding: 50px;
+            margin: 40px 0;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .quote {
+            font-size: 2rem;
+            font-style: italic;
+            color: #ffcc00;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .quote-author {
+            font-size: 1.2rem;
+            color: #fff;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+            color: rgba(255, 255, 255, 0.8);
+            opacity: 0;
+            animation: fadeIn 1s ease forwards 2s;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .creator {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            color: #ffcc00;
+            font-weight: 500;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            .department {
+                font-size: 1.8rem;
+            }
+            
+            .subtitle {
+                font-size: 1.4rem;
+            }
+            
+            .date-badge {
+                font-size: 1.4rem;
+                padding: 12px 25px;
+            }
+            
+            section {
+                padding: 40px 20px;
+            }
+            
+            .event-details {
+                flex-direction: column;
+            }
+            
+            .detail-card {
+                min-width: auto;
+            }
+            
+            .schedule th, .schedule td {
+                padding: 15px;
+                font-size: 1rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            p {
+                font-size: 1.1rem;
+            }
+            
+            .quote {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .department {
+                font-size: 1.5rem;
+            }
+            
+            .date-badge {
+                font-size: 1.2rem;
+            }
+            
+            .detail-card i {
+                font-size: 2.8rem;
+            }
+            
+            .detail-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .schedule th, .schedule td {
+                padding: 12px 10px;
+                font-size: 0.9rem;
+            }
+            
+            .quote {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation" id="bubble-container">
+        <!-- Bubbles will be generated by JavaScript -->
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1>Teachers' Day Celebration</h1>
+                <div class="department">2025 - CSE Department</div>
+                <p class="subtitle">Honoring Those Who Shape Tomorrow's Innovators</p>
+                <div class="date-badge">September 9, 2025</div>
+            </div>
+        </header>
+
+        <section style="--delay: 1">
+            <h2>You're Invited!</h2>
+            <p>Dear Respected Faculty Members,</p>
+            <p>We are delighted to invite you to our annual Teachers' Day celebration organized by the Computer Science & Engineering Department. This event is our small way of expressing gratitude for your unwavering dedication, guidance, and inspiration.</p>
+            <p>Your presence has shaped our lives and careers, and we would be honored to have you join us for an afternoon of appreciation, entertainment, and joy.</p>
+            
+            <div class="event-details">
+                <div class="detail-card">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Date</h3>
+                    <p>September 9, 2025</p>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Time</h3>
+                    <p>1:00 PM onwards</p>
+                </div>
+                <div class="detail-card">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Venue</h3>
+                    <p>CSE Department</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="--delay: 2">
+            <h2>Program Schedule</h2>
+            <table class="schedule">
+                <tr>
+                    <th>Time</th>
+                    <th>Event</th>
+                </tr>
+                <tr>
+                    <td class="time">1:00 PM - 1:30 PM</td>
+                    <td>Welcome Address & Introductory Speech by HOD</td>
+                </tr>
+                <tr>
+                    <td class="time">1:30 PM - 2:15 PM</td>
+                    <td>Felicitation Ceremony</td>
+                </tr>
+                <tr>
+                    <td class="time">2:15 PM - 3:00 PM</td>
+                    <td>Fun Games</td>
+                </tr>
+                <tr>
+                    <td class="time">3:00 PM - 3:30 PM</td>
+                    <td>Speech by Honored Teachers</td>
+                </tr>
+                <tr>
+                    <td class="time">3:30 PM onwards</td>
+                    <td>High Tea & Interactive Session</td>
+                </tr>
+            </table>
+        </section>
+
+        <!-- Quote Section -->
+        <div class="quote-section" style="opacity: 0; transform: translateY(30px); animation: fadeInUp 1s ease forwards; animation-delay: 1.8s;">
+            <p class="quote">"Teaching: The profession that creates all other professions."</p>
+            <p class="quote-author">- In honor of our esteemed teachers</p>
+        </div>
+
+        <section style="--delay: 3">
+            <h2>Special Note</h2>
+            <p>This event is organized by your grateful students to celebrate your contributions to our growth and development as future computer scientists and engineers.</p>
+            <p>We look forward to your presence as we express our heartfelt appreciation for your tireless efforts in shaping the next generation of technology leaders.</p>
+        </section>
+
+        <footer>
+            <p>© 2025 Computer Science & Engineering Department</p>
+            
+            <p class="creator">Made by Debuggingdynamo143</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create background bubbles
+        document.addEventListener('DOMContentLoaded', function() {
+            const bubbleContainer = document.getElementById('bubble-container');
+            
+            // Create bubbles
+            for (let i = 0; i < 20; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                const size = Math.random() * 60 + 40;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 5;
+                
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.top = `${posY}%`;
+                bubble.style.left = `${posX}%`;
+                bubble.style.animationDelay = `${delay}s`;
+                
+                // Add click event to pop bubble
+                bubble.addEventListener('click', function() {
+                    // Add pop animation
+                    this.style.animation = 'pop 0.5s forwards';
+                    
+                    // Remove bubble after animation completes
+                    setTimeout(() => {
+                        this.remove();
+                        
+                        // Create a new bubble after a short delay
+                        setTimeout(createBubble, 1000);
+                    }, 500);
+                });
+                
+                bubbleContainer.appendChild(bubble);
+            }
+            
+            // Function to create a single bubble
+            function createBubble() {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                const size = Math.random() * 60 + 40;
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                const delay = Math.random() * 5;
+                
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.top = `${posY}%`;
+                bubble.style.left = `${posX}%`;
+                bubble.style.animationDelay = `${delay}s`;
+                
+                // Add click event to pop bubble
+                bubble.addEventListener('click', function() {
+                    // Add pop animation
+                    this.style.animation = 'pop 0.5s forwards';
+                    
+                    // Remove bubble after animation completes
+                    setTimeout(() => {
+                        this.remove();
+                        
+                        // Create a new bubble after a short delay
+                        setTimeout(createBubble, 1000);
+                    }, 500);
+                });
+                
+                bubbleContainer.appendChild(bubble);
+            }
+            
+            // Additional animations for elements when they come into view
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animationPlayState = 'running';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            // Observe all sections
+            document.querySelectorAll('section, .quote-section').forEach(section => {
+                section.style.animationPlayState = 'paused';
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
